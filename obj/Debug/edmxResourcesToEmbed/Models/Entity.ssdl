@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbLibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TBLAbout">
+    <Key>
+      <PropertyRef Name="AboutID" />
+    </Key>
+    <Property Name="AboutID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AboutTextFirst" Type="varchar(max)" />
+    <Property Name="AboutTextSecond" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="TBLAdmin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdminMail" Type="varchar" MaxLength="50" />
+    <Property Name="AdminRol" Type="char" MaxLength="1" />
+    <Property Name="AdminPassword" Type="varchar" MaxLength="50" />
+    <Property Name="AdminPhoto" Type="varchar" MaxLength="100" />
+    <Property Name="AdminStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="TBLAnnouncement">
+    <Key>
+      <PropertyRef Name="AnnouncementID" />
+    </Key>
+    <Property Name="AnnouncementID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AnnouncementCategory" Type="varchar" MaxLength="50" />
+    <Property Name="AnnouncementContent" Type="varchar(max)" />
+    <Property Name="AnnouncementStatus" Type="bit" />
+    <Property Name="AnnouncementDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TBLAuthor">
+    <Key>
+      <PropertyRef Name="AuthorID" />
+    </Key>
+    <Property Name="AuthorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AuthorName" Type="varchar" MaxLength="50" />
+    <Property Name="AuthorSurname" Type="varchar" MaxLength="50" />
+    <Property Name="AuthorDetail" Type="varchar(max)" />
+    <Property Name="AuthorStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="TBLBook">
+    <Key>
+      <PropertyRef Name="BookID" />
+    </Key>
+    <Property Name="BookID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookName" Type="varchar" MaxLength="50" />
+    <Property Name="BookCategory" Type="tinyint" />
+    <Property Name="BookAuthor" Type="int" />
+    <Property Name="BookPublicationYear" Type="nchar" MaxLength="4" />
+    <Property Name="BookPublisher" Type="varchar" MaxLength="50" />
+    <Property Name="BookPageNumber" Type="varchar" MaxLength="4" />
+    <Property Name="BookPhoto" Type="varchar" MaxLength="250" />
+    <Property Name="BookStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="TBLCategory">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="20" />
+    <Property Name="CategoryDetail" Type="varchar(max)" />
+    <Property Name="CategoryStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="TBLComment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CommentUserPhoto" Type="varchar" MaxLength="200" />
+    <Property Name="CommentUserName" Type="varchar" MaxLength="50" />
+    <Property Name="CommentUserSurname" Type="varchar" MaxLength="50" />
+    <Property Name="CommentUserSchool" Type="varchar(max)" />
+    <Property Name="CommentMail" Type="varchar" MaxLength="50" />
+    <Property Name="CommentContent" Type="varchar(max)" />
+    <Property Name="CommentDate" Type="smalldatetime" />
+    <Property Name="CommentApproval" Type="bit" />
+    <Property Name="CommentStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="TBLContact">
+    <Key>
+      <PropertyRef Name="ContactID" />
+    </Key>
+    <Property Name="ContactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContactName" Type="varchar" MaxLength="50" />
+    <Property Name="ContactMail" Type="varchar" MaxLength="50" />
+    <Property Name="ContactSubject" Type="varchar" MaxLength="50" />
+    <Property Name="ContactMessage" Type="varchar" MaxLength="1000" />
+    <Property Name="ContactDate" Type="smalldatetime" />
+    <Property Name="ContactStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="TBLCriminal">
+    <Key>
+      <PropertyRef Name="CriminalID" />
+    </Key>
+    <Property Name="CriminalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CriminalUser" Type="int" />
+    <Property Name="CriminalStartDate" Type="smalldatetime" />
+    <Property Name="CriminalEndDate" Type="smalldatetime" />
+    <Property Name="CriminalMoney" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CriminalMovement" Type="int" />
+    <Property Name="CriminalStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="TBLEmployee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeName" Type="varchar" MaxLength="50" />
+    <Property Name="EmployeeSurname" Type="varchar" MaxLength="50" />
+    <Property Name="EmployeeStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="TBLMessage">
+    <Key>
+      <PropertyRef Name="MessageID" />
+    </Key>
+    <Property Name="MessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MessageSender" Type="varchar" MaxLength="50" />
+    <Property Name="MessageBuyer" Type="varchar" MaxLength="50" />
+    <Property Name="MessageSubject" Type="varchar" MaxLength="50" />
+    <Property Name="MessageContents" Type="varchar(max)" />
+    <Property Name="MessageLabel" Type="varchar" MaxLength="50" />
+    <Property Name="MessageDate" Type="smalldatetime" />
+    <Property Name="MessageStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="TBLMovement">
+    <Key>
+      <PropertyRef Name="MovementID" />
+    </Key>
+    <Property Name="MovementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MovementBook" Type="int" />
+    <Property Name="MovementUser" Type="int" />
+    <Property Name="MovementEmployee" Type="int" />
+    <Property Name="MovementPurchaseDate" Type="smalldatetime" />
+    <Property Name="MovementReturnDate" Type="smalldatetime" />
+    <Property Name="MovementUserReturnDate" Type="smalldatetime" />
+    <Property Name="MovementStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="TBLSafe">
+    <Key>
+      <PropertyRef Name="SafeID" />
+    </Key>
+    <Property Name="SafeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SafeMonth" Type="varchar" MaxLength="20" />
+    <Property Name="SafeTotal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SafeStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="TBLTodo">
+    <Key>
+      <PropertyRef Name="TodoID" />
+    </Key>
+    <Property Name="TodoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TodoMail" Type="varchar" MaxLength="50" />
+    <Property Name="TodoContent" Type="varchar(max)" />
+    <Property Name="TodoDate" Type="date" />
+    <Property Name="TodoApproval" Type="bit" />
+    <Property Name="TodoStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="TBLUser">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="20" />
+    <Property Name="UserSurname" Type="varchar" MaxLength="20" />
+    <Property Name="UserMail" Type="varchar" MaxLength="50" />
+    <Property Name="UserNickName" Type="varchar" MaxLength="20" />
+    <Property Name="UserPassword" Type="varchar" MaxLength="20" />
+    <Property Name="UserPhoto" Type="varchar" MaxLength="250" />
+    <Property Name="UserPhone" Type="varchar" MaxLength="20" />
+    <Property Name="UserSchool" Type="varchar" MaxLength="100" />
+    <Property Name="UserStatus" Type="bit" />
+  </EntityType>
+  <Association Name="FK_TBLBook_TBLAuthor">
+    <End Role="TBLAuthor" Type="Self.TBLAuthor" Multiplicity="0..1" />
+    <End Role="TBLBook" Type="Self.TBLBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLAuthor">
+        <PropertyRef Name="AuthorID" />
+      </Principal>
+      <Dependent Role="TBLBook">
+        <PropertyRef Name="BookAuthor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLBook_TBLCategory">
+    <End Role="TBLCategory" Type="Self.TBLCategory" Multiplicity="0..1" />
+    <End Role="TBLBook" Type="Self.TBLBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLCategory">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="TBLBook">
+        <PropertyRef Name="BookCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLCriminal_TBLMovement">
+    <End Role="TBLMovement" Type="Self.TBLMovement" Multiplicity="0..1" />
+    <End Role="TBLCriminal" Type="Self.TBLCriminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLMovement">
+        <PropertyRef Name="MovementID" />
+      </Principal>
+      <Dependent Role="TBLCriminal">
+        <PropertyRef Name="CriminalMovement" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLCriminal_TBLUser">
+    <End Role="TBLUser" Type="Self.TBLUser" Multiplicity="0..1" />
+    <End Role="TBLCriminal" Type="Self.TBLCriminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLUser">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="TBLCriminal">
+        <PropertyRef Name="CriminalUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLMovement_TBLBook">
+    <End Role="TBLBook" Type="Self.TBLBook" Multiplicity="0..1" />
+    <End Role="TBLMovement" Type="Self.TBLMovement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLBook">
+        <PropertyRef Name="BookID" />
+      </Principal>
+      <Dependent Role="TBLMovement">
+        <PropertyRef Name="MovementBook" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLMovement_TBLEmployee">
+    <End Role="TBLEmployee" Type="Self.TBLEmployee" Multiplicity="0..1" />
+    <End Role="TBLMovement" Type="Self.TBLMovement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLEmployee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="TBLMovement">
+        <PropertyRef Name="MovementEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLMovement_TBLUser">
+    <End Role="TBLUser" Type="Self.TBLUser" Multiplicity="0..1" />
+    <End Role="TBLMovement" Type="Self.TBLMovement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLUser">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="TBLMovement">
+        <PropertyRef Name="MovementUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="TopBestPerson" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="TopCountBookAuthor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="TopOnlineUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="TopReadBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="DbLibraryModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLAbout" EntityType="Self.TBLAbout" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLAdmin" EntityType="Self.TBLAdmin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLAnnouncement" EntityType="Self.TBLAnnouncement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLAuthor" EntityType="Self.TBLAuthor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLBook" EntityType="Self.TBLBook" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLCategory" EntityType="Self.TBLCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLComment" EntityType="Self.TBLComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLContact" EntityType="Self.TBLContact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLCriminal" EntityType="Self.TBLCriminal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLEmployee" EntityType="Self.TBLEmployee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLMessage" EntityType="Self.TBLMessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLMovement" EntityType="Self.TBLMovement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLSafe" EntityType="Self.TBLSafe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLTodo" EntityType="Self.TBLTodo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLUser" EntityType="Self.TBLUser" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TBLBook_TBLAuthor" Association="Self.FK_TBLBook_TBLAuthor">
+      <End Role="TBLAuthor" EntitySet="TBLAuthor" />
+      <End Role="TBLBook" EntitySet="TBLBook" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLBook_TBLCategory" Association="Self.FK_TBLBook_TBLCategory">
+      <End Role="TBLCategory" EntitySet="TBLCategory" />
+      <End Role="TBLBook" EntitySet="TBLBook" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLCriminal_TBLMovement" Association="Self.FK_TBLCriminal_TBLMovement">
+      <End Role="TBLMovement" EntitySet="TBLMovement" />
+      <End Role="TBLCriminal" EntitySet="TBLCriminal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLCriminal_TBLUser" Association="Self.FK_TBLCriminal_TBLUser">
+      <End Role="TBLUser" EntitySet="TBLUser" />
+      <End Role="TBLCriminal" EntitySet="TBLCriminal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLMovement_TBLBook" Association="Self.FK_TBLMovement_TBLBook">
+      <End Role="TBLBook" EntitySet="TBLBook" />
+      <End Role="TBLMovement" EntitySet="TBLMovement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLMovement_TBLEmployee" Association="Self.FK_TBLMovement_TBLEmployee">
+      <End Role="TBLEmployee" EntitySet="TBLEmployee" />
+      <End Role="TBLMovement" EntitySet="TBLMovement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLMovement_TBLUser" Association="Self.FK_TBLMovement_TBLUser">
+      <End Role="TBLUser" EntitySet="TBLUser" />
+      <End Role="TBLMovement" EntitySet="TBLMovement" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

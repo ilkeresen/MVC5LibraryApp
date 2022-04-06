@@ -1,0 +1,68 @@
+﻿@using MVC5Library.Models
+@model List<TBLTodo>
+
+<div class="card shadow">
+    <div class="card-header bg-dark">
+        <h3 class="card-title">
+            <i class="ion ion-clipboard mr-1"></i>
+            Yapılacaklar Listesi
+        </h3>
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <ul class="todo-list" data-widget="todo-list">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <!-- drag handle -->
+                    <span class="handle">
+                        <i class="fas fa-ellipsis-v"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </span>
+                    <!-- checkbox -->
+                    <div class="icheck-primary d-inline ml-2">
+                        @if (item.TodoApproval == false)
+                        {
+                            <input type="checkbox" class="TodoUpdateT" value="@item.TodoID" name="TodoApproval" id="@item.TodoID" checked>
+                        }
+                        @if (item.TodoApproval == true)
+                        {
+                            <input type="checkbox" class="TodoUpdateF" value="@item.TodoID" name="TodoApproval" id="@item.TodoID">
+                        }
+                        <label for="@item.TodoID"></label>
+                    </div>
+                    <!-- todo text -->
+                    <span class="text">@item.TodoContent</span>
+                    <!-- Emphasis label -->
+                    <small class="badge badge-danger"><i class="far fa-clock"></i> @Convert.ToDateTime(item.TodoDate).ToString("dd/MM/yyyy")</small>
+                    <!-- General tools such as edit or delete-->
+                    <div class="tools">
+                        <button type="button" class="btn btn-sm text-danger TodoDelete" id="@item.TodoID" data-id="@item.TodoID" data-toggle="modal" data-target="#modal-delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <button type="button" class="btn btn-sm text-info TodoEdit" id="@item.TodoID" data-id="@item.TodoID" data-toggle="modal" data-target="#modal-edit">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button type="button" class="btn btn-sm text-success TodoDetail" id="@item.TodoID" data-id="@item.TodoID" data-toggle="modal" data-target="#modal-detail">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer clearfix">
+        <button type="button" class="btn btn-outline-dark float-right" data-toggle="modal" data-target="#modal-add">
+            <i class="fas fa-plus"></i>
+            Yeni Ekle
+        </button>
+    </div>
+</div>
+<!-- /.card -->

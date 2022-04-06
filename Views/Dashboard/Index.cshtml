@@ -1,0 +1,697 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="content-header">
+    <div class="container-fluid">
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="card card-dark shadow">
+            <div class="card-header">
+                <h3 class="card-title">ANASAYFA</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-primary shadow">
+                            <div class="inner">
+                                <h3>@ViewBag.Books</h3>
+
+                                <p>Toplam Kitap Sayısı</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-secondary shadow">
+                            <div class="inner">
+                                <h3>@ViewBag.Users</h3>
+
+                                <p>Toplam Üye Sayısı</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-info shadow">
+                            <div class="inner">
+                                <h3>@ViewBag.Money ₺</h3>
+
+                                <p>Toplam Kasa Tutar</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-cash-register"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-success shadow">
+                            <div class="inner">
+                                <h3>@ViewBag.AllLoan</h3>
+
+                                <p>Toplam Ödünç Kitap</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-danger shadow">
+                            <div class="inner">
+                                <h3>@ViewBag.Categorys</h3>
+
+                                <p>Toplam Kategori Sayısı</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-check-double"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-indigo shadow">
+                            <div class="inner">
+                                <h3>@ViewBag.OnlineUser</h3>
+
+                                <p>En Aktif Üye</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-user-friends"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-purple shadow">
+                            <div class="inner">
+                                <h3>@ViewBag.ReadBook</h3>
+
+                                <p>En Çok Okunan Kitap</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-book-reader"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-cyan shadow">
+                            <div class="inner">
+                                <h3>@ViewBag.ThisDayLoan</h3>
+
+                                <p>Bugünkü Ödünç Verilen Kitaplar</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-address-book"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-maroon shadow">
+                            <div class="inner">
+                                <h3>@ViewBag.BookPublisher</h3>
+
+                                <p>En Fazla Kitabı Olan Yayınevi</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-lightblue shadow">
+                            <div class="inner">
+                                <h3>@ViewBag.BestPerson</h3>
+
+                                <p>En Başarılı Personel</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    @*<div class="col-lg-3 col-6">
+                            <div class="small-box bg-teal shadow">
+                                <div class="inner">
+                                    <h3>@ViewBag.Messages</h3>
+
+                                    <p>Toplam Mesaj Sayısı</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-comment"></i>
+                                </div>
+                            </div>
+                        </div>*@
+                    <!-- ./col -->
+                    <div class="col-lg-6 col-12">
+                        <!-- small box -->
+                        <div class="small-box bg-pink shadow">
+                            <div class="inner">
+                                <h3>@ViewBag.TopCountBookAuthor</h3>
+
+                                <p>En Fazla Kitabı Olan Yazar</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-pen-nib"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.row -->
+        <!-- Main row 3 col -->
+        <div class="row">
+            <!-- Left col -->
+            <section class="col-lg-4 connectedSortable">
+                <!-- DONUT CHART -->
+                <div class="card card-dark shadow">
+                    <div class="card-header">
+                        <h3 class="card-title">Personel Kaç Kitap Verdi</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                    </div>
+                    <div class="card-footer">
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    @ViewBag.EmployeeNamee
+                                    <span class="float-right text-success">
+                                        <i class="fas fa-arrow-up text-sm"></i>
+                                        @ViewBag.EmployeeSalesCountt
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </section>
+            <!-- /.Left col -->
+            <!-- Mid col (We are only adding the ID to make the widgets sortable)-->
+            <section class="col-lg-4 connectedSortable">
+                <!-- USERS LIST -->
+                <div class="card shadow">
+                    <div class="card-header bg-dark">
+                        <h3 class="card-title">En Son Eklenen Üyeler</h3>
+
+                        <div class="card-tools">
+                            <span class="badge badge-danger">8 Üye</span>
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <ul class="users-list clearfix">
+                            @foreach (var item in ViewBag.UsersList)
+                            {
+                                <li>
+                                    <a href="/User/UserDetail/@item.UserID"><img src="@item.UserPhoto" alt="User Image"></a>
+                                    <a class="users-list-name" href="/User/UserDetail/@item.UserID">@item.UserName @item.UserSurname</a>
+                                    <span class="users-list-name">@item.UserMail</span>
+                                </li>
+                            }
+                        </ul>
+                        <!-- /.users-list -->
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer text-center">
+                        <a href="/User/UserList/">Tüm Üyeler</a>
+                    </div>
+                    <!-- /.card-footer -->
+                </div>
+                <!--/.card -->
+            </section>
+            <!-- Mid col -->
+            <!-- Right col (We are only adding the ID to make the widgets sortable)-->
+            <section class="col-lg-4 connectedSortable">
+                <!-- PIE CHART -->
+                <div class="card card-dark shadow">
+                    <div class="card-header">
+                        <h3 class="card-title">Kullanıcılar Kaç Kitap Aldı</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                    </div>
+                    <div class="card-footer">
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    @ViewBag.UsersBookNamee
+                                    <span class="float-right text-success">
+                                        <i class="fas fa-arrow-up text-sm"></i>
+                                        @ViewBag.UsersBookSalesCountt
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </section>
+            <!-- Right col -->
+        </div>
+        <!-- Main row 2 col -->
+        <div class="row">
+            <!-- Left col -->
+            <section class="col-lg-6 connectedSortable">
+
+                <div class="card">
+                    <div class="card-header bg-dark">
+                        <h3 class="card-title">
+                            <i class="fas fa-people-carry"></i>
+                            Personel Kitap Listesi
+                        </h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Personel Ad Soyad</th>
+                                    <th>Personel Verdiği Kitap Sayısı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{int i = 0; }
+                                @foreach (var item in ViewBag.EmployeeBooks)
+                                {
+                                    <tr>
+                                        <td>@(++i)</td>
+                                        <td>@item.Name</td>
+                                        <td align="center">@item.Count</td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Personel Ad Soyad</th>
+                                    <th>Personel Verdiği Kitap Sayısı</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+
+            </section>
+            <!-- /.Left col -->
+            <!-- Mid col (We are only adding the ID to make the widgets sortable)-->
+            <section class="col-lg-6 connectedSortable">
+
+                <div class="card">
+                    <div class="card-header bg-dark">
+                        <h3 class="card-title">
+                            <i class="fas fa-users"></i>
+                            Kullanıcı Kitap Listesi
+                        </h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Kullanıcı Ad Soyad</th>
+                                    <th>Kullanıcı Aldığı Kitap Sayısı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{int num = 0; }
+                                @foreach (var item in ViewBag.UsersBooks)
+                                {
+                                    <tr>
+                                        <td>@(++num)</td>
+                                        <td>@item.Name</td>
+                                        <td align="center">@item.Count</td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Kullanıcı Ad Soyad</th>
+                                    <th>Kullanıcı Aldığı Kitap Sayısı</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+
+            </section>
+            <!-- Mid col -->
+        </div>
+        <!-- /.row (main row) -->
+        <!-- Main row 2 col -->
+        <div class="row">
+            <!-- Left col -->
+            <section class="col-lg-8 connectedSortable">
+                <!-- TO DO List -->
+                @Html.Action("TodoList", "Dashboard")
+            </section>
+            <!-- /.Left col -->
+
+            @if (User.IsInRole("A"))
+            {
+                <!-- right col -->
+                <section class="col-lg-4 connectedSortable">
+                    <!-- TO DO List -->
+                    <div class="card shadow">
+                        <div class="card-header bg-dark">
+                            <h3 class="card-title">
+                                <i class="fas fa-envelope mr-1"></i>
+                                Mesajlar &emsp;
+                                <i class="fas fa-comment mr-1"></i>
+                                Yorumlar
+                            </h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <a href="/Contact/Index/">
+                                <div class="small-box bg-dark shadow">
+                                    <div class="inner">
+                                        <h3>@Session["ContactCount"] <sup style="font-size: 20px">Adet</sup></h3>
+
+                                        <p>Toplam İletişim Mesajları</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="/Comment/Index/">
+                                <div class="small-box bg-dark shadow">
+                                    <div class="inner">
+                                        <h3>@Session["CommentCount"] <sup style="font-size: 20px">Adet</sup></h3>
+
+                                        <p>Toplam Vitrin Yorumları</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fas fa-comment"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </section>
+                <!-- /.right col -->
+            }
+
+        </div>
+        <!-- /.row (main row) -->
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+
+
+<!-- EDİT MODAL -->
+<div class="modal fade" id="modal-edit" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <h4 class="modal-title">Yapılacak Güncelle</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form id="TodoEditForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="TodoID">Yapılacak ID</label>
+                        <input class="form-control" type="text" id="EditCategoryID" name="TodoID" readonly />
+                    </div>
+                    <div class="form-group">
+                        <label for="TodoMail">Yapılacak Sahibi Mail</label>
+                        <input class="form-control" type="text" id="EditTodoMail" name="TodoMail" readonly />
+                    </div>
+                    <div class="form-group">
+                        <label for="TodoContent">Yapılacak İçerik</label>
+                        <textarea style="resize:none;" rows="3" class="form-control" type="text" id="EditTodoContent" name="TodoContent"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="TodoDate">Yapılacak Tarih</label>
+                        <input class="form-control tarih" type="text" id="EditTodoDate" name="TodoDate" />
+                    </div>
+                </div>
+            </form>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                <input type="button" id="TodoEdit" class="btn btn-info" value="Yapılacak Güncelle" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ADD MODAL -->
+<div class="modal fade" id="modal-add" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark">
+                <h4 class="modal-title">Yapılacak Ekle</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form id="TodoAddForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="TodoContent">Yapılacak İçerik</label>
+                        <textarea style="resize:none;" rows="3"  class="form-control" type="text" id="TodoContent" name="TodoContent"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="TodoDate">Yapılacak Tarih</label>
+                        <input class="form-control tarih" type="text" id="TodoDate" name="TodoDate" />
+                    </div>
+                </div>
+            </form>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                <input type="button" id="TodoAdd" class="btn btn-dark" value="Yapılacak Ekle" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DETAİL MODAL -->
+<div class="modal fade" id="modal-detail" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-success">
+                <h4 class="modal-title">Kategori Detay</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="TodoID">Yapılacak ID</label>
+                    <input class="form-control" type="text" id="DetailCategoryID" name="TodoID" readonly />
+                </div>
+                <div class="form-group">
+                    <label for="TodoMail">Yapılacak Sahibi Mail</label>
+                    <input class="form-control" type="text" id="DetailTodoMail" name="TodoMail" readonly />
+                </div>
+                <div class="form-group">
+                    <label for="TodoContent">Yapılacak İçerik</label>
+                    <textarea style="resize:none;" rows="3" class="form-control" type="text" id="DetailTodoContent" name="TodoContent" readonly></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="TodoDate">Yapılacak Tarih</label>
+                    <input class="form-control tarih" type="text" id="DetailTodoDate" name="TodoDate" readonly />
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DELETE MODAL -->
+<div class="modal fade" id="modal-delete" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h4 class="modal-title">Emin Misin?</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <strong>Seçtiğiniz Yapılacak silinecektir.</strong>
+                <input type="hidden" name="TodoID" id="TodoID" />
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                <input type="button" id="TodoDelete" class="btn btn-danger" value="Yapılacak Sil" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- jQuery -->
+<script src="~/AdminTema/plugins/jquery/jquery.min.js"></script>
+<!-- ChartJS -->
+<script src="~/AdminTema/plugins/chart.js/Chart.min.js"></script>
+
+<script>
+    //-------------
+    //- DONUT CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var Name = @Html.Raw(Json.Encode(ViewBag.EmployeeName));
+    var Count = @Html.Raw(Json.Encode(ViewBag.EmployeeSalesCount));
+    const bgcolor = [];
+    for (var i = 0; i < Count.length; i++) {
+        const r = Math.floor(Math.random() * 255);
+        const g = Math.floor(Math.random() * 255);
+        const b = Math.floor(Math.random() * 255);
+        bgcolor.push('rgba(' + r + ',' + g + ',' + b + ')');
+    }
+
+    var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+    var donutData = {
+        labels: Name,
+        datasets: [
+            {
+                data: Count,
+                backgroundColor: bgcolor,
+            }
+        ]
+    }
+    var donutOptions = {
+        maintainAspectRatio: false,
+        responsive: true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    var donutChart = new Chart(donutChartCanvas, {
+        type: 'doughnut',
+        data: donutData,
+        options: donutOptions
+    })
+
+    //-------------
+    //- PIE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var UsersName = @Html.Raw(Json.Encode(ViewBag.UsersBookName));
+    var UsersCount = @Html.Raw(Json.Encode(ViewBag.UsersBookSalesCount));
+
+    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+    var pieData = {
+        labels: UsersName,
+        datasets: [
+            {
+                data: UsersCount,
+                backgroundColor: bgcolor,
+            }
+        ]
+    }
+    var pieOptions = {
+        maintainAspectRatio: false,
+        responsive: true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    var pieChart = new Chart(pieChartCanvas, {
+        type: 'pie',
+        data: pieData,
+        options: pieOptions
+    })
+</script>

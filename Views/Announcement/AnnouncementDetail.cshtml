@@ -1,0 +1,49 @@
+﻿@model MVC5Library.Models.TBLAnnouncement
+@{
+    ViewBag.Title = "AnnouncementDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card card-gray-dark">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-eye"></i> Duyuru Detay</h3>
+                </div>
+            </div>
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="AnnouncementCategory">Duyuru Kategori</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(x => x.AnnouncementCategory, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="UserSurname">Duyuru İçerik</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-keyboard"></i></span>
+                            </div>
+                            @Html.TextAreaFor(x => x.AnnouncementContent, new { @type = "text", @rows = 5, @class = "form-control", @required = "required", @style = "resize:none;", @readonly = "readonly" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="AnnouncementDate">Duyuru Tarih</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                            </div>
+                            @*<input type="text" class="form-control" name="AnnouncementDate" value="AnnouncementDate">*@
+                            @Html.TextBoxFor(x => x.AnnouncementDate, new { @Value = (Model.AnnouncementDate == null ? "" : Model.AnnouncementDate.Value.ToString("dd/MM/yyyy")), @type = "text", @class = "form-control", @required = "required", @readonly = "readonly" })
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+

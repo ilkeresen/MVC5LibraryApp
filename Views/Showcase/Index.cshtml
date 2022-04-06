@@ -1,0 +1,357 @@
+﻿@using MVC5Library.Models;
+@model MVC5Library.Models.ClassIEnumerable.Showcase
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Mvc5 Kütüphane - Anasayfa</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" type="image/png" href="~/VitrinTema/assets/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/VitrinTema/assets/img/icons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/VitrinTema/assets/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/VitrinTema/assets/img/icons/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="~/VitrinTema/assets/img/icons/android-chrome-512x512.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/VitrinTema/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/VitrinTema/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/VitrinTema/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/VitrinTema/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/VitrinTema/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/VitrinTema/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/VitrinTema/assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ======= Mobile nav toggle button ======= -->
+    <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
+    <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+    <!-- ======= Header ======= -->
+    <header id="header" class="d-flex flex-column justify-content-center">
+
+        <nav id="navbar" class="navbar nav-menu">
+            <ul>
+                <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Anasayfa</span></a></li>
+                <li><a href="#about" class="nav-link scrollto"><i class='bx bx-briefcase-alt-2'></i> <span>Hakkımızda</span></a></li>
+                <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Kitaplarımız</span></a></li>
+                <li><a href="#testimonials" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Yorumlar</span></a></li>
+                <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>İletişim</span></a></li>
+                <li><a href="/Showcase/Login/" class="nav-link scrollto"><i class='bx bx-user'></i> <span>Giriş Yap & Kayıt Ol</span></a></li>
+            </ul>
+        </nav><!-- .nav-menu -->
+
+    </header><!-- End Header -->
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex flex-column justify-content-center">
+        <div class="container" data-aos="zoom-in" data-aos-delay="100">
+            <h1>Mvc5 Kütüphane</h1>
+            <p>Bana <span class="typed" data-typed-items="çiçek dolu bir bahçe., kitap dolu bir ev. @*, Freelancer, Photographer*@"></span></p>
+            <div class="social-links">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+    <main id="main">
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+                @foreach (var item in Model.ShowCaseAbout)
+                {
+                    <div class="section-title">
+                        <h2>Hakkımızda</h2>
+                        <p>
+                            @item.AboutTextFirst
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <img src="~/VitrinTema/assets/img/bgimage.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div class="col-lg-7 pt-4 pt-lg-0 content">
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <ul>
+                                        <li><i class="bi bi-chevron-right"></i> <strong>Basılı Yayınlar:</strong> <span>142.310</span></li>
+                                        <li><i class="bi bi-chevron-right"></i> <strong>Basılı Süreli Yayınlar (Dergiler):</strong> <span>1.166</span></li>
+                                        <li><i class="bi bi-chevron-right"></i> <strong>Basılı Yayınlar (İslami):</strong> <span>55</span></li>
+                                        <li><i class="bi bi-chevron-right"></i> <strong>Nadir Eserler (Matbu):</strong> <span>215</span></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-5">
+                                    <ul>
+                                        <li><i class="bi bi-chevron-right"></i> <strong>Nadir Eserler (El Yazması):</strong> <span>8</span></li>
+                                        <li><i class="bi bi-chevron-right"></i> <strong>E-dergi:</strong> <span>40.996</span></li>
+                                        <li><i class="bi bi-chevron-right"></i> <strong>E-kitap:</strong> <span>4.415.704</span></li>
+                                        <li><i class="bi bi-chevron-right"></i> <strong>Kitap Dışı Kaynaklar:</strong> <span>200</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p>
+                                @item.AboutTextSecond
+                            </p>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </section><!-- End About Section -->
+        <!-- ======= Facts Section ======= -->
+        <section id="facts" class="facts">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>Kütüphanemİz</h2>
+                    <p>
+                        Bütün bu çalışmalarımızın sonucunda öğrenciler, araştırmacılar ve okumayı
+                        kendine alışkanlık edinmiş insanlar için oluşturmuş olduğumuz koleksiyonumuzda
+                    </p>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="count-box">
+                            <i class="bi bi-emoji-smile"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="@ViewBag.UsersCount" data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Mutlu İnsan</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+                        <div class="count-box">
+                            <i class="bi bi-pencil"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="@ViewBag.AuthorCount" data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Yazar</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+                        <div class="count-box">
+                            <i class="bi bi-book"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="@ViewBag.BookCount" data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Kitap</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+                        <div class="count-box">
+                            <i class="bi bi-bar-chart-steps"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="@ViewBag.CategoryCount" data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Kategori</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Facts Section -->
+        <!-- ======= Portfolio Section ======= -->
+        <section id="portfolio" class="portfolio section-bg">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>KİTAPLARIMIZ</h2>
+                    <p>
+                        Her tür kitabı bulunduran kütüphanemizin kitaplarını ziyaret etmenizi kesinlikle öneriyoruz.
+                        İnanıyoruz ki siz de kendinize uygun o kitabı bulacaksınız. Sadece pes etmeyin :)
+                    </p>
+                </div>
+
+                @*<div class="row">
+                        <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+                            <ul id="portfolio-flters">
+                                <li data-filter="*" class="filter-active">All</li>
+                                <li data-filter=".filter-app">App</li>
+                                <li data-filter=".filter-card">Card</li>
+                                <li data-filter=".filter-web">Web</li>
+                            </ul>
+                        </div>
+                    </div>*@
+
+                <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+                    @foreach (var item in Model.ShowCaseBook)
+                    {
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                            <div class="portfolio-wrap">
+                                <img src="@item.BookPhoto" class="img-fluid" alt="">
+                                <div class="portfolio-info">
+                                    <h4>@item.BookName</h4>
+                                    <p>@item.TBLAuthor.AuthorName @item.TBLAuthor.AuthorSurname</p>
+                                    <div class="portfolio-links">
+                                        <a href="@item.BookPhoto" data-gallery="portfolioGallery" class="portfolio-lightbox" title="@item.TBLAuthor.AuthorName @item.TBLAuthor.AuthorSurname"><i class="bx bx-plus"></i></a>
+                                        @*<a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+        </section><!-- End Portfolio Section -->
+        <!-- ======= Testimonials Section ======= -->
+        <section id="testimonials" class="testimonials section-bg">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>YORUMLAR</h2>
+                </div>
+
+                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+                        @foreach (var item in Model.ShowCaseComment)
+                        {
+
+                            <div class="swiper-slide">
+                                <div class="testimonial-item">
+                                    <img src="@item.CommentUserPhoto" class="testimonial-img" alt="">
+                                    <h3>@item.CommentUserName @item.CommentUserSurname</h3>
+                                    <h4>@item.CommentUserSchool</h4>
+                                    <p>
+                                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                        @item.CommentContent
+                                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div><!-- End testimonial item -->
+                        }
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+            </div>
+        </section><!-- End Testimonials Section -->
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>İLETİŞİM</h2>
+                </div>
+
+                <div class="row mt-1">
+
+                    <div class="col-lg-4">
+                        <div class="info">
+                            <div class="address">
+                                <i class="bi bi-geo-alt"></i>
+                                <h4>Adres:</h4>
+                                <p>Alanaldı cad. 5/10 Ataşehir/İçerenköy</p>
+                            </div>
+
+                            <div class="email">
+                                <i class="bi bi-envelope"></i>
+                                <h4>E-Posta:</h4>
+                                <p>info@mvc5library.com</p>
+                            </div>
+
+                            <div class="phone">
+                                <i class="bi bi-phone"></i>
+                                <h4>Telefon:</h4>
+                                <p>0(530) 966-51-55</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-8 mt-5 mt-lg-0">
+
+                        <form action="Index" method="post" role="form" class="php-email-form">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <input type="text" name="ContactName" class="form-control" id="ContactName" placeholder="Ad Soyad" required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <input type="email" class="form-control" name="ContactMail" id="ContactMail" placeholder="E-Posta Adresi" required>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <input type="text" class="form-control" name="ContactSubject" id="ContactSubject" placeholder="Konu" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <textarea class="form-control" name="ContactMessage" rows="5" placeholder="Mesaj" style="resize: none;" required></textarea>
+                            </div>
+                            <div class="text-center"><button type="submit">Mesaj Gönder</button></div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Contact Section -->
+
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <h3>Mvc5 Kütüphane</h3>
+            <p>Bana çiçek dolu bir bahçe, kitap dolu bir ev.</p>
+            <div class="social-links">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; Copyright <strong><span>Mvc5 Kütüphane</span></strong>. Tüm hakları saklıdır.
+            </div>
+            <div class="credits">
+                Designed by <a href="https://github.com/ilkeresen">İlker ESEN</a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/VitrinTema/assets/vendor/purecounter/purecounter.js"></script>
+    <script src="~/VitrinTema/assets/vendor/aos/aos.js"></script>
+    <script src="~/VitrinTema/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/VitrinTema/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/VitrinTema/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/VitrinTema/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/VitrinTema/assets/vendor/typed.js/typed.min.js"></script>
+    <script src="~/VitrinTema/assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/VitrinTema/assets/js/main.js"></script>
+
+    <script>
+        $('.php-email-form').submit(function{
+            $('.loading').show();
+        });
+    </script>
+
+</body>
+
+</html>

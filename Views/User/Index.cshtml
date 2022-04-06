@@ -1,0 +1,114 @@
+﻿@using MVC5Library.Models
+@model List<TBLUser>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+
+
+<div class="content-header">
+    <div class="container-fluid">
+        @if (TempData["message"] != null)
+        {
+            <div class="alert alert-@TempData["alert"] alert-dismissible fade show">
+                <button style="color:white" type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h5><i class="icon fas @TempData["icon"]"></i>@TempData["item"]</h5>
+                <strong>@TempData["message"]</strong>
+            </div>
+        }
+    </div>
+</div>
+
+
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <h3 class="card-title">
+                    <i class="fas fa-users"></i>
+                    Kullanıcılar
+                </h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="example1" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Kullanıcı Ad</th>
+                            <th>Kullanıcı Soyad</th>
+                            <th>Kullanıcı E-Posta</th>
+                            <th>Kullanıcı Telefon</th>
+                            <th>Kullanıcı Sil</th>
+                            <th>Kullanıcı Güncelle</th>
+                            <th>Kullanıcı Detay</th>
+                            <th>Kullanıcı Kitap Geçmiş</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int i = 0; }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@(++i)</td>
+                                <td>@item.UserName</td>
+                                <td>@item.UserSurname</td>
+                                <td>@item.UserMail</td>
+                                <td>@item.UserPhone</td>
+                                <td>
+                                    <a href="/User/UserDelete/@item.UserID" class="btn btn-outline-danger">
+                                        <i class="fas fa-backspace"></i>
+                                        Sil
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="/User/UserUpdate/@item.UserID" class="btn btn-outline-info">
+                                        <i class="fas fa-edit"></i>
+                                        Güncelle
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="/User/UserDetail/@item.UserID" class="btn btn-outline-success">
+                                        <i class="fas fa-eye"></i>
+                                        Detay
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="/User/UserBookPast/@item.UserID" class="btn btn-outline-dark">
+                                        <i class="fas fa-book"></i>
+                                        Kitap Geçmiş
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>#</th>
+                            <th>Kullanıcı Ad</th>
+                            <th>Kullanıcı Soyad</th>
+                            <th>Kullanıcı E-Posta</th>
+                            <th>Kullanıcı Telefon</th>
+                            <th>Kullanıcı Sil</th>
+                            <th>Kullanıcı Güncelle</th>
+                            <th>Kullanıcı Detay</th>
+                            <th>Kullanıcı Kitap Geçmiş</th>
+                        </tr>
+                    </tfoot>
+                </table>
+                <a href="/User/UserAdd/" class="btn btn-outline-dark">
+                    <i class="fas fa-plus"></i>
+                    Yeni Kullanıcı Ekle
+                </a>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        @*@Html.Action("BookList", "Book")*@
+    </div><!--/. container-fluid -->
+</section>
+<!-- /.content -->

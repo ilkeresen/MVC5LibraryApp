@@ -1,0 +1,115 @@
+﻿@using MVC5Library.Models
+@model List<TBLComment>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+
+
+<div class="content-header">
+    <div class="container-fluid">
+        @if (TempData["message"] != null)
+        {
+            <div class="alert alert-@TempData["alert"] alert-dismissible fade show">
+                <button style="color:white" type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h5><i class="icon fas @TempData["icon"]"></i>@TempData["item"]</h5>
+                <strong>@TempData["message"]</strong>
+            </div>
+        }
+    </div>
+</div>
+
+
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <h3 class="card-title">
+                    <i class="fas fa-comment"></i>
+                    Yorumlar
+                </h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="example1" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Yorum E-Posta</th>
+                            <th>Yorum Metin</th>
+                            <th>Yorum Tarih</th>
+                            <th>Yorum Vitrin Durum</th>
+                            <th>Yorum Sil</th>
+                            <th>Yorum Vitrin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int i = 0; }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@(++i)</td>
+                                <td>@item.CommentMail</td>
+                                <td>
+                                    @{string metin = System.Text.RegularExpressions.Regex.Replace(item.CommentContent, @"<(.|\n)*?>", string.Empty); }
+                                    @Html.Raw(metin.Substring(0, metin.Length > 20 ? 20 : metin.Length))...
+                                </td>
+                                <td>@Convert.ToDateTime(item.CommentDate).ToString("dd/MM/yyyy")</td>
+                                <td>
+                                    @if (item.CommentApproval == true)
+                                    {
+                                        <span class="badge badge-success">Vitrine Ekli</span>
+                                    }
+                                    @if (item.CommentApproval == false)
+                                    {
+                                        <span class="badge badge-danger">Vitrine Ekli Değil</span>
+                                    }
+                                </td>
+                                <td>
+                                    <a href="/Comment/CommentDelete/@item.CommentID" class="btn btn-outline-danger">
+                                        <i class="fas fa-trash"></i>
+                                        Sil
+                                    </a>
+                                </td>
+                                <td>
+                                    @if (item.CommentApproval == true)
+                                    {
+                                        <a href="/Comment/CommentApprovalDelete/@item.CommentID" class="btn btn-outline-danger">
+                                            <i class="fas fa-store-alt"></i>
+                                            Vitrinden Çıkart
+                                        </a>
+                                    }
+                                    @if (item.CommentApproval == false)
+                                    {
+                                        <a href="/Comment/CommentApprovalAdd/@item.CommentID" class="btn btn-outline-info">
+                                            <i class="fas fa-store-alt"></i>
+                                            Vitrine Ekle
+                                        </a>
+                                    }
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>#</th>
+                            <th>Yorum E-Posta</th>
+                            <th>Yorum Metin</th>
+                            <th>Yorum Tarih</th>
+                            <th>Yorum Vitrin Durum</th>
+                            <th>Yorum Sil</th>
+                            <th>Yorum Vitrin</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+    </div><!--/. container-fluid -->
+</section>
+<!-- /.content -->

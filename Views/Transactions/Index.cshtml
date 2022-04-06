@@ -1,0 +1,87 @@
+﻿@using MVC5Library.Models
+@model List<TBLMovement>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        @if (TempData["message"] != null)
+        {
+            <div class="alert alert-@TempData["alert"] alert-dismissible fade show">
+                <button style="color:white" type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h5><i class="icon fas @TempData["icon"]"></i>@TempData["item"]</h5>
+                <strong>@TempData["message"]</strong>
+            </div>
+        }
+    </div>
+</div>
+
+
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <h3 class="card-title">
+                    <i class="fas fa-book-reader"></i>
+                    İadesi Alınan Kitap Listesi
+                </h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="example1" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Kitap Ad</th>
+                            <th>Üye Ad</th>
+                            <th>Personel Ad</th>
+                            <th>Kitap Alış Tarih</th>
+                            <th>Kitap İade Tarih</th>
+                            <th>Kitap Teslim Tarih</th>
+                            <th>Kitap İşlem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int i = 0; }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@(++i)</td>
+                                <td>@item.TBLBook.BookName</td>
+                                <td>@item.TBLUser.UserName @item.TBLUser.UserSurname</td>
+                                <td>@item.TBLEmployee.EmployeeName @item.TBLEmployee.EmployeeSurname</td>
+                                <td>@Convert.ToDateTime(item.MovementPurchaseDate).ToString("dd/MM/yyyy")</td>
+                                <td>@Convert.ToDateTime(item.MovementReturnDate).ToString("dd/MM/yyyy")</td>
+                                <td>@Convert.ToDateTime(item.MovementUserReturnDate).ToString("dd/MM/yyyy")</td>
+                                <td>
+                                    <a href="/Loan/LoanReturnIt/@item.MovementID" class="btn btn-outline-danger">
+                                        Detaylar
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>#</th>
+                            <th>Kitap Ad</th>
+                            <th>Üye Ad</th>
+                            <th>Personel Ad</th>
+                            <th>Kitap Alış Tarih</th>
+                            <th>Kitap İade Tarih</th>
+                            <th>Kitap Teslim Tarih</th>
+                            <th>Kitap İşlem</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+    </div><!--/. container-fluid -->
+</section>
+<!-- /.content -->

@@ -1,0 +1,62 @@
+﻿@model MVC5Library.Models.TBLMovement
+@{
+    ViewBag.Title = "LoanToGive";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card card-gray-dark">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-book-open"></i> Ödünç Kitap Ver</h3>
+                </div>
+            </div>
+            <form method="post">
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <label for="MovementID">Kullanıcı Adı</label>
+                        @Html.DropDownListFor(x => x.MovementUser, (List<SelectListItem>)ViewBag.User, "Kullanıcı Seçiniz", new { @id = "LoanUser", @class = "form-control select2" })
+                    </div>
+
+                    <div class="form-group">
+                        <label for="BookCategory">Kitap Seçimi</label>
+                        @Html.DropDownListFor(x => x.MovementBook, (List<SelectListItem>)ViewBag.Book, "Kitap Seçiniz", new { @id = "LoanBook", @class = "form-control select2" })
+                    </div>
+
+                    <div class="form-group">
+                        <label for="BookAuthor">Personel Adı</label>
+                        @Html.DropDownListFor(x => x.MovementEmployee, (List<SelectListItem>)ViewBag.Employee, "Personel Seçiniz", new { @id = "LoanEmployee", @class = "form-control select2" })
+                    </div>
+
+                    <div class="form-group">
+                        <label for="MovementPurchaseDate">Kitap Alış Tarihi</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                            </div>
+                            <input type="text" name="MovementPurchaseDate" value="@DateTime.Now.ToShortDateString()" class="form-control" readonly />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="MovementReturnDate">Kitap İade Tarihi</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                            </div>
+                            <input type="text" name="MovementReturnDate" value="@DateTime.Now.AddDays(7).ToShortDateString()" class="form-control" readonly />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    <button type="submit" class="btn btn-dark"><i class="fas fa-folder-plus"></i> Kitabı Ödünç Ver</button>
+                    <input type="hidden" value="False" name="MovementStatus" />
+                </div>
+            </form>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+

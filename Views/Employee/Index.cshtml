@@ -1,0 +1,118 @@
+﻿@using MVC5Library.Models
+@model List<TBLEmployee>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+
+
+<div class="content-header">
+    <div class="container-fluid">
+        @if (TempData["message"] != null)
+        {
+            <div class="alert alert-@TempData["alert"] alert-dismissible fade show">
+                <button style="color:white" type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h5><i class="icon fas @TempData["icon"]"></i>@TempData["item"]</h5>
+                <strong>@TempData["message"]</strong>
+            </div>
+        }
+    </div>
+</div>
+
+
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        @Html.Action("EmployeeList", "Employee")
+    </div><!--/. container-fluid -->
+</section>
+<!-- /.content -->
+
+<!-- UPDATE MODAL -->
+<div class="modal fade" id="modal-update" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <h4 class="modal-title"><i class="fas fa-edit"></i> Personel Güncelle</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form id="EmployeeUpdateForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="UpdateEmployeeID">Personel ID</label>
+                        <input class="form-control" type="text" id="UpdateEmployeeID" name="EmployeeID" readonly />
+                    </div>
+                    <div class="form-group">
+                        <label for="UpdateEmployeeName">Personel Ad</label>
+                        <input class="form-control" type="text" id="UpdateEmployeeName" name="EmployeeName" />
+                    </div>
+                    <div class="form-group">
+                        <label for="UpdateEmployeeSurname">Personel Soyad</label>
+                        <input class="form-control" type="text" id="UpdateEmployeeSurname" name="EmployeeSurname" />
+                    </div>
+                </div>
+            </form>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                <input type="button" id="EmployeeUpdate" class="btn btn-info" value="Personel Güncelle" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ADD MODAL -->
+<div class="modal fade" id="modal-add" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark">
+                <h4 class="modal-title"><i class="fas fa-pen-nib"></i> Personel Ekle</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form id="EmployeeAddForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="EmployeeName">Personel Ad</label>
+                        <input class="form-control" type="text" id="EmployeeName" name="EmployeeName" />
+                    </div>
+                    <div class="form-group">
+                        <label for="EmployeeSurname">Personel Soyad</label>
+                        <input class="form-control" type="text" id="EmployeeSurname" name="EmployeeSurname" />
+                    </div>
+                </div>
+            </form>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                <input type="button" id="EmployeeAdd" class="btn btn-dark" value="Personel Ekle" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DELETE MODAL -->
+<div class="modal fade" id="modal-delete" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h4 class="modal-title"><i class="fas fa-backspace"></i> Emin Misin?</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <strong>Seçtiğiniz Personel silinecektir.</strong>
+                <input type="hidden" name="EmployeeID" id="EmployeeID" />
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                <input type="button" id="EmployeeDelete" class="btn btn-danger" value="Personel Sil" />
+            </div>
+        </div>
+    </div>
+</div>

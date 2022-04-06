@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Profilim</h1>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- Profile Image -->
+                <div class="card card-dark card-outline">
+                    <div class="card-body box-profile">
+                        <div class="text-center">
+                            <img class="profile-user-img img-fluid img-circle"
+                                 src="@TempData["UserPhoto"]"
+                                 alt="User profile picture">
+                        </div>
+                        <h3 class="profile-username text-center">@TempData["UserNameSurname"]</h3>
+                        <p class="text-muted text-center">@TempData["UserMail"]</p>
+                        <ul class="list-group list-group-unbordered mb-3">
+                            <li class="list-group-item">
+                                <b>Okuduğum Kitap Sayısı</b> <a class="float-right">@TempData["UserHowManyBook"]</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Gelen Mesaj Sayısı</b> <a class="float-right">@TempData["UserHowManyMessage"]</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Toplam Duyuru Sayısı</b> <a class="float-right">@TempData["AnnouncementCount"]</a>
+                            </li>
+                        </ul>
+                        <a href="/Message/Index/" class="btn btn-dark btn-block"><b>Gelen Kutusu</b></a>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+                <!-- About Me Box -->
+                <div class="card card-dark">
+                    <div class="card-header">
+                        <h3 class="card-title">Hakkımda</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <strong><i class="fas fa-book mr-1"></i> Okulum</strong>
+                        <p class="text-muted">
+                            @TempData["UserSchool"]
+                        </p>
+                        <hr>
+                        <strong><i class="fas fa-phone mr-1"></i> Telefon Numaram</strong>
+                        <p class="text-muted">
+                            @TempData["UserPhone"]
+                        </p>
+                        <hr>
+                        <strong><i class="fas fa-envelope mr-1"></i> E-Posta Adresim</strong>
+                        <p class="text-muted">
+                            @TempData["UserMail"]
+                        </p>
+                        <hr>
+                        <strong><i class="fas fa-user mr-1"></i> Kullanıcı Adım</strong>
+                        <p class="text-muted">
+                            @TempData["UserNickName"]
+                        </p>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header p-2">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Mesajlar</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Duyurular</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Ayarlar</a></li>
+                            @if (ViewBag.CommentStatus == false)
+                            {
+                                <li class="nav-item"><a class="nav-link" href="#comment" data-toggle="tab">Mvc5 Hakkında Yorum Yap</a></li>
+                            }
+                            else if (ViewBag.CommentStatus == true)
+                            {
+
+                            }
+                        </ul>
+                    </div><!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="active tab-pane" id="activity">
+                                @Html.Action("MessageList", "Studentpanel")
+                            </div>
+                            <!-- /.tab-pane -->
+                            <div class="tab-pane" id="timeline">
+                                <!-- The timeline -->
+                                @Html.Action("AnnouncementList", "Studentpanel")
+                            </div>
+                            <!-- /.tab-pane -->
+
+                            <div class="tab-pane" id="settings">
+                                @Html.Action("Settings", "Studentpanel")
+                            </div>
+                            <!-- /.tab-pane -->
+
+                            @if (ViewBag.CommentStatus == false)
+                            {
+                                <div class="tab-pane" id="comment">
+                                    @Html.Action("Comment", "Studentpanel")
+                                </div>
+                                <!-- /.tab-pane -->
+                            }
+                            else if (ViewBag.CommentStatus == true)
+                            {
+
+                            }
+                        </div>
+                        <!-- /.tab-content -->
+                    </div><!-- /.card-body -->
+                </div>
+                <!-- /.nav-tabs-custom -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b542ea8cb8fe4341a7e914352bf23fca" Name="Diagram1">
+        <EntityTypeShape EntityType="DbLibraryModel.TBLAuthor" Width="1.5" PointX="1.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibraryModel.TBLBook" Width="1.5" PointX="3.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibraryModel.TBLCategory" Width="1.5" PointX="1.375" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibraryModel.TBLCriminal" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibraryModel.TBLEmployee" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibraryModel.TBLMovement" Width="1.5" PointX="6" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibraryModel.TBLSafe" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibraryModel.TBLUser" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <AssociationConnector Association="DbLibraryModel.FK_TBLBook_TBLAuthor" ManuallyRouted="false" />
+        <AssociationConnector Association="DbLibraryModel.FK_TBLBook_TBLCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="DbLibraryModel.FK_TBLMovement_TBLBook" ManuallyRouted="false" />
+        <AssociationConnector Association="DbLibraryModel.FK_TBLCriminal_TBLMovement" ManuallyRouted="false" />
+        <AssociationConnector Association="DbLibraryModel.FK_TBLCriminal_TBLUser" ManuallyRouted="false" />
+        <AssociationConnector Association="DbLibraryModel.FK_TBLMovement_TBLUser" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

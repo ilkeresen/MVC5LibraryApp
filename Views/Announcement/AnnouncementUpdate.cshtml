@@ -1,0 +1,53 @@
+﻿@model MVC5Library.Models.TBLAnnouncement
+@{
+    ViewBag.Title = "AnnouncementUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card card-gray-dark">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-edit"></i> Duyuru Güncelle</h3>
+                </div>
+            </div>
+            <form method="post">
+                <div class="card-body">
+                    @Html.HiddenFor(x => x.AnnouncementID)
+                    <div class="form-group">
+                        <label for="AnnouncementCategory">Duyuru Kategori</label>
+                        <div class="input-group">
+                            @Html.DropDownListFor(x => x.AnnouncementCategory, (List<SelectListItem>)ViewBag.Category, "Kategori Seçiniz", new { @id = "BookCategory", @class = "form-control select2" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="UserSurname">Duyuru İçerik</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-keyboard"></i></span>
+                            </div>
+                            @Html.TextAreaFor(x => x.AnnouncementContent, new { @type = "text", @rows = 5, @class = "form-control", @required = "required", @style = "resize:none;" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="AnnouncementDate">Duyuru Tarih</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                            </div>
+                            @*<input type="text" class="form-control" name="AnnouncementDate" value="AnnouncementDate">*@
+                            @Html.TextBoxFor(x => x.AnnouncementDate, new { @Value = (Model.AnnouncementDate == null ? "" : Model.AnnouncementDate.Value.ToString("dd/MM/yyyy")), @type = "text", @class = "form-control", @required = "required" })
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <button type="submit" class="btn btn-dark"><i class="fas fa-folder-plus"></i> Duyuru Güncelle</button>
+                </div>
+            </form>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+

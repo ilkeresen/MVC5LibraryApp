@@ -1,0 +1,30 @@
+﻿
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">İletişim Mesajları</h3>
+
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <ul class="nav nav-pills flex-column">
+            <li class="nav-item active">
+                <a href="/Contact/Index/" class="nav-link">
+                    <i class="fas fa-inbox"></i> Gelen Kutusu
+                    <span class="badge bg-dark float-right">@ViewBag.ContactCountMessage</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/Contact/ContactTrashList/" class="nav-link">
+                    <i class="far fa-trash-alt"></i> Çöp Kutusu
+                    <span class="badge bg-dark float-right">@ViewBag.TrashCountMessage</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- /.card-body -->
+</div>

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DbLibraryModelStoreContainer" CdmEntityContainer="DbLibraryEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DbLibraryModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLAuthor">
+      <EntityTypeMapping TypeName="DbLibraryModel.TBLAuthor">
+        <MappingFragment StoreEntitySet="TBLAuthor">
+          <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+          <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+          <ScalarProperty Name="AuthorSurname" ColumnName="AuthorSurname" />
+          <ScalarProperty Name="AuthorDetail" ColumnName="AuthorDetail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLBook">
+      <EntityTypeMapping TypeName="DbLibraryModel.TBLBook">
+        <MappingFragment StoreEntitySet="TBLBook">
+          <ScalarProperty Name="BookID" ColumnName="BookID" />
+          <ScalarProperty Name="BookName" ColumnName="BookName" />
+          <ScalarProperty Name="BookCategory" ColumnName="BookCategory" />
+          <ScalarProperty Name="BookAuthor" ColumnName="BookAuthor" />
+          <ScalarProperty Name="BookPublicationYear" ColumnName="BookPublicationYear" />
+          <ScalarProperty Name="BookPublisher" ColumnName="BookPublisher" />
+          <ScalarProperty Name="BookPageNumber" ColumnName="BookPageNumber" />
+          <ScalarProperty Name="BookStatus" ColumnName="BookStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLCategory">
+      <EntityTypeMapping TypeName="DbLibraryModel.TBLCategory">
+        <MappingFragment StoreEntitySet="TBLCategory">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryDetail" ColumnName="CategoryDetail" />
+          <ScalarProperty Name="CategoryStatus" ColumnName="CategoryStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLCriminal">
+      <EntityTypeMapping TypeName="DbLibraryModel.TBLCriminal">
+        <MappingFragment StoreEntitySet="TBLCriminal">
+          <ScalarProperty Name="CriminalID" ColumnName="CriminalID" />
+          <ScalarProperty Name="CriminalUser" ColumnName="CriminalUser" />
+          <ScalarProperty Name="CriminalStartDate" ColumnName="CriminalStartDate" />
+          <ScalarProperty Name="CriminalEndDate" ColumnName="CriminalEndDate" />
+          <ScalarProperty Name="CriminalMoney" ColumnName="CriminalMoney" />
+          <ScalarProperty Name="CriminalMovement" ColumnName="CriminalMovement" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLEmployee">
+      <EntityTypeMapping TypeName="DbLibraryModel.TBLEmployee">
+        <MappingFragment StoreEntitySet="TBLEmployee">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="EmployeeSurname" ColumnName="EmployeeSurname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLMovement">
+      <EntityTypeMapping TypeName="DbLibraryModel.TBLMovement">
+        <MappingFragment StoreEntitySet="TBLMovement">
+          <ScalarProperty Name="MovementID" ColumnName="MovementID" />
+          <ScalarProperty Name="MovementBook" ColumnName="MovementBook" />
+          <ScalarProperty Name="MovementUser" ColumnName="MovementUser" />
+          <ScalarProperty Name="MovementEmployee" ColumnName="MovementEmployee" />
+          <ScalarProperty Name="MovementPurchaseDate" ColumnName="MovementPurchaseDate" />
+          <ScalarProperty Name="MovementReturnDate" ColumnName="MovementReturnDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLSafe">
+      <EntityTypeMapping TypeName="DbLibraryModel.TBLSafe">
+        <MappingFragment StoreEntitySet="TBLSafe">
+          <ScalarProperty Name="SafeID" ColumnName="SafeID" />
+          <ScalarProperty Name="SafeMonth" ColumnName="SafeMonth" />
+          <ScalarProperty Name="SafeTotal" ColumnName="SafeTotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLUser">
+      <EntityTypeMapping TypeName="DbLibraryModel.TBLUser">
+        <MappingFragment StoreEntitySet="TBLUser">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserSurname" ColumnName="UserSurname" />
+          <ScalarProperty Name="UserMail" ColumnName="UserMail" />
+          <ScalarProperty Name="UserNickName" ColumnName="UserNickName" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserPhoto" ColumnName="UserPhoto" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+          <ScalarProperty Name="UserSchool" ColumnName="UserSchool" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

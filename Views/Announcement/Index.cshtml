@@ -1,0 +1,96 @@
+﻿@using MVC5Library.Models
+@model List<TBLAnnouncement>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        @if (TempData["message"] != null)
+        {
+            <div class="alert alert-@TempData["alert"] alert-dismissible fade show">
+                <button style="color:white" type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h5><i class="icon fas @TempData["icon"]"></i>@TempData["item"]</h5>
+                <strong>@TempData["message"]</strong>
+            </div>
+        }
+    </div>
+</div>
+
+
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <h3 class="card-title">
+                    <i class="fas fa-list-ol"></i>
+                    Duyurular
+                </h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="example1" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Duyuru Kategori</th>
+                            <th>Duyuru Tarih</th>
+                            <th>Duyuru Sil</th>
+                            <th>Duyuru Güncelle</th>
+                            <th>Duyuru Detay</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int i = 0; }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@(++i)</td>
+                                <td>@item.AnnouncementCategory</td>
+                                <td>@Convert.ToDateTime(item.AnnouncementDate).ToString("dd/MM/yyyy")</td>
+                                <td>
+                                    <a href="/Announcement/AnnouncementDelete/@item.AnnouncementID" class="btn btn-outline-danger">
+                                        <i class="fas fa-backspace"></i>
+                                        Sil
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="/Announcement/AnnouncementUpdate/@item.AnnouncementID" class="btn btn-outline-info">
+                                        <i class="fas fa-edit"></i>
+                                        Güncelle
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="/Announcement/AnnouncementDetail/@item.AnnouncementID" class="btn btn-outline-success">
+                                        <i class="fas fa-eye"></i>
+                                        Detay
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>#</th>
+                            <th>Duyuru Kategori</th>
+                            <th>Duyuru Tarih</th>
+                            <th>Duyuru Sil</th>
+                            <th>Duyuru Güncelle</th>
+                            <th>Duyuru Detay</th>
+                        </tr>
+                    </tfoot>
+                </table>
+                <a href="/Announcement/AnnouncementAdd/" class="btn btn-outline-dark">
+                    <i class="fas fa-plus"></i>
+                    Yeni Duyuru Ekle
+                </a>
+            </div>
+            <!-- /.card-body -->
+        </div>
+    </div><!--/. container-fluid -->
+</section>
+<!-- /.content -->

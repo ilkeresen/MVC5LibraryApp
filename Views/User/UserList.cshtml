@@ -1,0 +1,81 @@
+﻿@using MVC5Library.Models
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<TBLUser>
+
+@{
+    ViewBag.Title = "UserList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Kullanıcılar Listesi</h1>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+            <div class="row d-flex align-items-stretch">
+
+                @foreach (var item in Model)
+                {
+                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                        <div class="card bg-light">
+                            <div class="card-header text-muted border-bottom-0">
+                                @item.UserNickName
+                            </div>
+                            <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="lead"><b>@item.UserName @item.UserSurname</b></h2>
+                                        <p class="text-muted text-sm"></p>
+                                        <ul class="ml-4 mb-0 fa-ul text-muted">
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-school"></i></span> Okul: @item.UserSchool</li>
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Telefon: @item.UserPhone</li>
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope"></i></span> E-Posta: @item.UserMail</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                        <img src="@item.UserPhoto" alt="" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="text-right">
+                                    <a href="/User/UserDelete/@item.UserID" class="btn btn-sm btn-outline-danger">
+                                        <i class="fas fa-backspace"></i> Sil
+                                    </a>
+                                    <a href="/User/UserUpdate/@item.UserID" class="btn btn-sm btn-outline-info">
+                                        <i class="fas fa-backspace"></i> Güncelle
+                                    </a>
+                                    <a href="/User/UserDetail/@item.UserID" class="btn btn-sm btn-outline-success">
+                                        <i class="fas fa-eye"></i> Detay
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+            @Html.PagedListPager((IPagedList)Model, page => Url.Action("UserList", new { page }), new PagedListRenderOptions { LinkToFirstPageFormat = "<< İlk", LinkToPreviousPageFormat = "< Önceki", LinkToNextPageFormat = "Sonraki >", LinkToLastPageFormat = "Son >>" })
+        </div>
+        <!-- /.card-footer -->
+    </div>
+    <!-- /.card -->
+
+</section>
+<!-- /.content -->

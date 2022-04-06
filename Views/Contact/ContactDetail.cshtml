@@ -1,0 +1,61 @@
+﻿@using MVC5Library.Models
+@model List<TBLContact>
+@{
+    ViewBag.Title = "ContactDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Mesaj Detay</h1>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-3">
+            @Html.Action("Folders", "Contact")
+        </div>
+        <!-- /.col -->
+        @foreach (var item in Model)
+        {
+            <div class="col-md-9">
+                <div class="card card-dark card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">@item.ContactName</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <div class="mailbox-read-info">
+                            <h5>@item.ContactSubject</h5>
+                            <h6>
+                                Gönderen E-Posta: @item.ContactMail
+                                <span class="mailbox-read-time float-right">@Convert.ToDateTime(item.ContactDate).ToString("dd/MM/yyyy")</span>
+                            </h6>
+                        </div>
+                        <!-- /.mailbox-read-info -->
+                        <div class="mailbox-read-message">
+                            <p>@item.ContactMessage</p>
+                        </div>
+                        <!-- /.mailbox-read-message -->
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <a href="/Contact/ContactDelete/@item.ContactID" class="btn btn-outline-danger">
+                            <i class="fas fa-trash"></i>
+                            Sil
+                        </a>
+                    </div>
+                    <!-- /.card-footer -->
+                </div>
+                <!-- /.card -->
+            </div>
+        }
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>

@@ -1,0 +1,107 @@
+﻿@model MVC5Library.Models.TBLUser
+@{
+    ViewBag.Title = "UserUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card card-gray-dark">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-plus"></i> Kullanıcı Güncelle</h3>
+                </div>
+            </div>
+            @using (Html.BeginForm("UserUpdate", "User", FormMethod.Post))
+            {
+                <div class="card-body">
+                    @Html.HiddenFor(x=>x.UserID)
+                    <div class="form-group">
+                        <label for="UserName">Kullanıcı Ad</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user-plus"></i></span>
+                            </div>
+                            @Html.TextBoxFor(x => x.UserName, new { @type = "text", @class = "form-control", @required = "required" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="UserSurname">Kullanıcı Soyad</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user-plus"></i></span>
+                            </div>
+                            @Html.TextBoxFor(x => x.UserSurname, new { @type = "text", @class = "form-control", @required = "required" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="UserMail">Kullanıcı E-Posta</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            @Html.TextBoxFor(x => x.UserMail, new { @type = "email", @class = "form-control", @required = "required" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="UserNickName">Kullanıcı Ad(NickName)</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user-plus"></i></span>
+                            </div>
+                            @Html.TextBoxFor(x => x.UserNickName, new { @type = "text", @class = "form-control", @required = "required" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="UserPassword">Kullanıcı Şifre</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user-plus"></i></span>
+                            </div>
+                            @Html.TextBoxFor(x => x.UserPassword, new { @type = "text", @class = "form-control", @required = "required" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="UserPhoto">Kullanıcı Fotoğraf</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-camera"></i></span>
+                            </div>
+                            @Html.TextBoxFor(x => x.UserPhoto, new { @type = "text", @class = "form-control", @required = "required" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="UserPhone">Kullanıcı Telefon</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                            </div>
+                            @Html.TextBoxFor(x => x.UserPhone, new { @id = "tell", @type = "text", @class = "form-control", @required = "required" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="UserSchool">Kullanıcı Okul(Üni,Lise,Orta,İlk)</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-school"></i></span>
+                            </div>
+                            @Html.TextBoxFor(x => x.UserSchool, new { @type = "text", @class = "form-control", @required = "required" })
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    <button type="submit" class="btn btn-dark"><i class="fas fa-folder-plus"></i> Yeni Kitap Kaydet</button>
+                </div>
+            }
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+

@@ -1,0 +1,65 @@
+﻿@using MVC5Library.Models
+@model List<TBLMovement>
+@{
+    ViewBag.Title = "MyBooks";
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Kitaplarım</h1>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <h3 class="card-title">
+                    <i class="fas fa-book"></i> 
+                    Kitaplarım Listesi
+                </h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="example1" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Kitap Ad</th>
+                            <th>Kitap Alış Tarih</th>
+                            <th>Kitap İade Tarih</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int i = 0; }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@(++i)</td>
+                                <td>@item.TBLBook.BookName</td>
+                                <td>@Convert.ToDateTime(item.MovementPurchaseDate).ToString("dd/MM/yyyy")</td>
+                                <td>@Convert.ToDateTime(item.MovementReturnDate).ToString("dd/MM/yyyy")</td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>#</th>
+                            <th>Kitap Ad</th>
+                            <th>Kitap Alış Tarih</th>
+                            <th>Kitap İade Tarih</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+    </div><!--/. container-fluid -->
+</section>
+<!-- /.content -->

@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>404 SAYFASI</title>
+    <link href="~/AdminTema/dist/css/Error404.css" rel="stylesheet" />
+</head>
+<body>
+
+    <p>HATA: <span>404</span></p>
+    <code><span>bu_sayfa</span>.<em>not_found</em> = true;</code>
+    <code><span>if</span> (<b>sayfa_adını_yalnış_yazmışsın</b>) {<span>tekrar_dene()</span>;}</code>
+    <code><span>else if (<b>hata_bizde_demek</b>)</span> {<em>alert</em>(<i>"Bunun için gerçekten üzgünüz."</i>); <span>window</span>.<em>location</em> = anasayfa;}</code>
+    <center><a href="/Showcase/Index/">Anasayfa'ya Geri Dön.</a></center>
+
+    <script src="~/AdminTema/plugins/jquery/jquery.min.js"></script>
+    <script>
+        function type(n, t) {
+            var str = document.getElementsByTagName("code")[n].innerHTML.toString();
+            var i = 0;
+            document.getElementsByTagName("code")[n].innerHTML = "";
+
+            setTimeout(function () {
+                var se = setInterval(function () {
+                    i++;
+                    document.getElementsByTagName("code")[n].innerHTML =
+                        str.slice(0, i) + "|";
+                    if (i == str.length) {
+                        clearInterval(se);
+                        document.getElementsByTagName("code")[n].innerHTML = str;
+                    }
+                }, 10);
+            }, t);
+        }
+
+        type(0, 0);
+        type(1, 600);
+        type(2, 1300);
+
+    </script>
+</body>
+</html>

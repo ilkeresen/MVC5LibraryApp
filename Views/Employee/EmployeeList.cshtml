@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MVC5Library.Models.TBLEmployee>
+
+<div class="card">
+    <div class="card-header bg-dark">
+        <h3 class="card-title">
+            <i class="nav-icon fas fa-people-carry"></i>
+            Personeller
+        </h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Personel Adı</th>
+                    <th>Personel Soyadı</th>
+                    <th>Personel Sil</th>
+                    <th>Personel Güncelle</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{int i = 0; }
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@(++i)</td>
+                        <td>@item.EmployeeName</td>
+                        <td>@item.EmployeeSurname</td>
+                        <td>
+                            <button type="button" class="btn btn-outline-danger EmployeeDelete" id="@item.EmployeeID" data-id="@item.EmployeeID" data-toggle="modal" data-target="#modal-delete">
+                                <i class="fas fa-backspace"></i>
+                                Sil
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-outline-info EmployeeUpdate" id="@item.EmployeeID" data-id="@item.EmployeeID" data-toggle="modal" data-target="#modal-update">
+                                <i class="fas fa-edit"></i>
+                                Güncelle
+                            </button>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>#</th>
+                    <th>Personel Adı</th>
+                    <th>Personel Soyadı</th>
+                    <th>Personel Sil</th>
+                    <th>Personel Güncelle</th>
+                </tr>
+            </tfoot>
+        </table>
+        <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#modal-add">
+            <i class="fas fa-plus"></i>
+            Yeni Personel Ekle
+        </button>
+    </div>
+    <!-- /.card-body -->
+</div>
+

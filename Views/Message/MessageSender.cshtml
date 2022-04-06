@@ -1,0 +1,124 @@
+﻿@using MVC5Library.Models
+@model List<TBLMessage>
+@{
+    ViewBag.Title = "MessageSender";
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Mesajlarım</h1>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-3">
+            <a href="/Message/MessageNew/" class="btn btn-dark btn-block mb-3">Yeni Mesaj</a>
+
+            @Html.Action("Folders", "Message")
+            <!-- /.card -->
+            @Html.Action("Labels", "Message")
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+            <div class="card card-dark">
+                <div class="card-header">
+                    <h3 class="card-title">Gönderilen Mesajlar</h3>
+                    <!-- /.card-tools -->
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body p-2">
+                    <table id="example1" class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    #
+                                </th>
+                                <th>
+                                    Mesaj Etiket
+                                </th>
+                                <th>
+                                    Mesaj Gönderdiğim E-Posta
+                                </th>
+                                <th>
+                                    Mesaj Konu - İçerik
+                                </th>
+                                <th>
+                                    Mesaj Tarih
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ int i = 0; }
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @(++i)
+                                    </td>
+                                    <td class="mailbox-star">
+                                        @if (item.MessageLabel == "Important")
+                                        {
+                                            <i class="fas fa-circle text-danger"></i>
+                                        }
+                                        else if (item.MessageLabel == "Promotions")
+                                        {
+                                            <i class="fas fa-circle text-warning"></i>
+                                        }
+                                        else if (item.MessageLabel == "Social")
+                                        {
+                                            <i class="fas fa-circle text-primary"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fas fa-circle text-dark"></i>
+                                        }
+                                    </td>
+                                    <td class="mailbox-name"><a href="/Message/MessageDetail/@item.MessageID">@item.MessageBuyer</a></td>
+                                    <td class="mailbox-subject">
+                                        <b>@item.MessageSubject</b> -
+                                        @{string metin = System.Text.RegularExpressions.Regex.Replace(item.MessageContents, @"<(.|\n)*?>", string.Empty); }
+                                        @Html.Raw(metin.Substring(0, metin.Length > 30 ? 30 : metin.Length))...
+                                    </td>
+                                    <td class="mailbox-date">@Convert.ToDateTime(item.MessageDate).ToString("dd/MM/yyyy")</td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>
+                                    #
+                                </th>
+                                <th>
+                                    Mesaj Etiket
+                                </th>
+                                <th>
+                                    Mesaj Gönderdiğim E-Posta
+                                </th>
+                                <th>
+                                    Mesaj Konu - İçerik
+                                </th>
+                                <th>
+                                    Mesaj Tarih
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <!-- /.table -->
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->

@@ -1,0 +1,60 @@
+﻿@model MVC5Library.Models.TBLMovement
+@{
+    ViewBag.Title = "LoanReturnIt";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card card-gray-dark">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-book-reader"></i> Kitap İade Et</h3>
+                </div>
+            </div>
+            @using (Html.BeginForm("LoanReturnIt", "Loan", FormMethod.Post))
+            {
+                <div class="card-body">
+                    @Html.HiddenFor(x => x.MovementID)
+
+                    <div class="form-group">
+                        <label for="BookName">Kitap Adı</label>
+                        @Html.TextBoxFor(x => x.TBLBook.BookName, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+
+                    <div class="form-group">
+                        <label for="UserName">Üye Ad</label>
+                        @Html.TextBoxFor(x => x.TBLUser.UserName, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+
+                    <div class="form-group">
+                        <label for="EmployeeName">Kitap Basım Yıl</label>
+                        @Html.TextBoxFor(x => x.TBLEmployee.EmployeeName, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+
+                    <div class="form-group">
+                        <label for="MovementPurchaseDate">Kitap Alış Tarihi</label>
+                        @Html.TextBoxFor(x => x.MovementPurchaseDate, "{0:dd.MM.yyyy}", new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+
+                    <div class="form-group">
+                        <label for="MovementReturnDate">Kitap İade Tarihi</label>
+                        @Html.TextBoxFor(x => x.MovementReturnDate, "{0:dd.MM.yyyy}", new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Kitap Teslim Tarihi</label>
+                        <input type="text" name="MovementUserReturnDate" value="@DateTime.Now.ToShortDateString()" class="form-control" readonly />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">İade Gecikmiş Gün Sayısı</label>
+                        <input type="text" value="@ViewBag.ReturnDate" class="form-control" id="gecinput" readonly />
+                    </div>
+
+                    <button type="submit" class="btn btn-dark"><i class="fas fa-folder-plus"></i> Kitap İade Et</button>
+                </div>
+            }
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
