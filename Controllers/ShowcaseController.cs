@@ -107,8 +107,8 @@ namespace MVC5Library.Controllers
                 Context.SaveChanges();
                 WebMail.SmtpServer = "smtp.gmail.com";
                 WebMail.EnableSsl = true;
-                WebMail.UserName = "mvc5kutuphane@gmail.com";
-                WebMail.Password = "123456mvc";
+                WebMail.UserName = "mailadresiniz@gmail.com";
+                WebMail.Password = "mailsifreniz";
                 WebMail.SmtpPort = 587;
                 WebMail.Send(tBLUser.UserMail, "Şifremi Unuttum!",
                     " <!doctype html><html lang='en-US'><head><meta content='text/html; charset=utf-8' http-equiv='Content-Type' />" +
